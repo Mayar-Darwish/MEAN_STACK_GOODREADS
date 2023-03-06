@@ -4,12 +4,14 @@ const bookSchema = new mongoose.Schema({
     img: {  data: Buffer, contentType: String },
     name: { type: String, required: true },
 
-    author_id: { type: object_Id, ref: "author" },
-    category_id: { type: object_Id, ref: "category" },
+    author_id: { type: object_Id, ref: "authors" },
+    category_id: { type: object_Id, ref: "categories" },
     reviews:[{
-        user_id:{type:object_Id,ref:"user"},
+        user_id:{type:object_Id,ref:"users"},
         rate:{type:Number},
-        comment:{type:String}
+        comment:{type:String},
+        state:{type:String,
+        enum:['currently Read','Want to Read','Read']}
     }]
 })
 

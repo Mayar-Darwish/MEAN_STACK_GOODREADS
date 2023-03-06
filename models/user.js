@@ -11,9 +11,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     email:{
-        validate: {
-            validator: validator.isEmail()
-        },
+        type:String,
         unique: true,
         required: true
     },
@@ -30,6 +28,7 @@ const userSchema = new mongoose.Schema({
         type:Boolean,
         default: false 
     },
+    token: { type: String },
     booksOfUSer_id:[
         {
             type:object_id,ref:"books"
